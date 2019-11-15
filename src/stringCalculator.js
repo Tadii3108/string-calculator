@@ -46,7 +46,7 @@ console.log(calculator.add('9,70,34,15'));
 console.log(calculator.add('5\n10,3'));
 console.log(calculator.add('5\n10,3;6|1'));
 console.log(calculator.add('-5,10'));
-console.log(calculator.add('2+1001'))
+console.log(calculator.add('2+1001'));
 
 module.exports = {
   StringCalculator

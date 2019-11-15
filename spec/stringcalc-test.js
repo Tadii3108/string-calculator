@@ -31,4 +31,7 @@ describe('String calculator', () => {
   it('Should return 2', () => {
 		expect(calculator.add('2+1001')).toEqual(2);
 	});
+  it('should support delimiters of any length', () => {
+    expect(calculator.add('//[***]\n1***2***3')).toEqual(6);
+  });
 });
