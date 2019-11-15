@@ -1,9 +1,9 @@
 // Tests
+
 const {StringCalculator} = require ('../src/stringCalculator.js')
 
-const calculator = new StringCalculator;
-
 describe('String calculator', () => {
+  calculator = new StringCalculator();
 
   it('should return 0 for empty string passed', () => {
     expect(calculator.add('')).toBe(0);
@@ -15,5 +15,9 @@ describe('String calculator', () => {
 
   it('should return the sum of two numbers passed', () => {
     expect(calculator.add('1,2')).toBe(3);
+  });
+
+  it('should return the sum of any amount of given numbers', () => {
+    expect(calculator.add('4,8,12,50')).toEqual(74);
   });
 });
