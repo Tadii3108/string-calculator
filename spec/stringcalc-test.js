@@ -20,4 +20,8 @@ describe('String calculator', () => {
   it('should return the sum of any amount of given numbers', () => {
     expect(calculator.add('4,8,12,50')).toEqual(74);
   });
+
+  it('should be able to handle new lines between numbers',() => {
+    expect(calculator.add('1\n2,3')).toEqual(6);
+  });
 });
