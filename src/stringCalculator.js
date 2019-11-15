@@ -11,8 +11,13 @@ class StringCalculator {
     //allows a return of 0 for an empty string passed
     if (numbers == '') {
       return 0;
+    }
 
-    } else {
+    if (numbers > 1000) {
+      numbers = 0;
+    }
+
+  else {
 
       //throws error for negative numbers
       for(let i = 0; i < numbers.length; i++) {
@@ -41,6 +46,7 @@ console.log(calculator.add('9,70,34,15'));
 console.log(calculator.add('5\n10,3'));
 console.log(calculator.add('5\n10,3;6|1'));
 console.log(calculator.add('-5,10'));
+console.log(calculator.add('2+1001'))
 
 module.exports = {
   StringCalculator

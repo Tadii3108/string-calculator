@@ -28,4 +28,7 @@ describe('String calculator', () => {
   it('should support different delimiters', () => {
     expect(calculator.add('1\n20;2|9')).toEqual(32);
   });
+  it('Should return 2', () => {
+		expect(calculator.add('2+1001')).toEqual(2);
+	});
 });
