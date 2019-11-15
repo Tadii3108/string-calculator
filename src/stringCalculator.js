@@ -11,11 +11,23 @@ class StringCalculator {
     //allows a return of 0 for an empty string passed
     if (numbers == '') {
       return 0;
+
     } else {
 
-    for(i = 0; i < splits.length; i++) {
-      add += parseInt(splits[i]); //parseInt helps convert our string to numbers
-    }
+      //throws error for negative numbers
+      for(let i = 0; i < numbers.length; i++) {
+        if(numbers[i] == '-') {
+          try {
+            throw 'negative numbers not allowed';
+          } catch (error) {
+            return error + numbers[i];
+          }
+        }
+      }
+
+      for(i = 0; i < splits.length; i++) {
+        add += parseInt(splits[i]); //parseInt helps convert our string to numbers
+      }
     return add;
     }
   }
@@ -28,6 +40,7 @@ console.log(calculator.add('1,2'));
 console.log(calculator.add('9,70,34,15'));
 console.log(calculator.add('5\n10,3'));
 console.log(calculator.add('5\n10,3;6|1'));
+console.log(calculator.add('-5,10'));
 
 module.exports = {
   StringCalculator
