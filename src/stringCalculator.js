@@ -4,7 +4,7 @@ class StringCalculator {
   constructor(){}
 
   add(numbers) {
-    var splits = numbers.split(/[\n\,]/); //use regular expression to allow for new lines inbetween numbers
+    var splits = numbers.split(/[\n\,\;\|\{\}\']/); //use regular expression to allow for different delimiters inbetween numbers
     var add = 0;
     var i = 0;
 
@@ -27,6 +27,7 @@ console.log(calculator.add('1'));
 console.log(calculator.add('1,2'));
 console.log(calculator.add('9,70,34,15'));
 console.log(calculator.add('5\n10,3'));
+console.log(calculator.add('5\n10,3;6|1'));
 
 module.exports = {
   StringCalculator

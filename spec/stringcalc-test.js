@@ -24,4 +24,8 @@ describe('String calculator', () => {
   it('should be able to handle new lines between numbers',() => {
     expect(calculator.add('1\n2,3')).toEqual(6);
   });
+
+  it('should support different delimiters', () => {
+    expect(calculator.add('1\n20;2|9')).toEqual(32);
+  });
 });
