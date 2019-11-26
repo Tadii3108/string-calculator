@@ -1,9 +1,9 @@
 // Tests
 
-const {StringCalculator} = require ('../src/stringCalculator.js')
+let {StringCalculator} = require ('../src/stringCalculator.js');
+let calculator = new StringCalculator();
 
 describe('String calculator', () => {
-  calculator = new StringCalculator();
 
   it('should return 0 for empty string passed', () => {
     expect(calculator.add('')).toBe(0);
@@ -31,7 +31,8 @@ describe('String calculator', () => {
   it('Should return 2', () => {
 		expect(calculator.add('2+1001')).toEqual(2);
 	});
-  it('should support delimiters of any length', () => {
-    expect(calculator.add('//[***]\n1***2***3')).toEqual(6);
+  it('negatives not allowed', () => {
+    expect(() => {
+      calculator.add('-1,3')}).toThrowError('negatives not allowed');
   });
 });

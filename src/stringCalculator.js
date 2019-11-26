@@ -4,9 +4,11 @@ class StringCalculator {
   constructor(){}
 
   add(numbers) {
-    var splits = numbers.split(/[\n\,\;\|\{\}\']/); //use regular expression to allow for different delimiters inbetween numbers
-    var add = 0;
-    var i = 0;
+    //use regular expression to allow for different delimiters inbetween numbers
+    let splits = numbers.split(/[\n\,\;\|\{\}\']/);
+
+    let add = 0;
+    let i = 0;
 
     //allows a return of 0 for an empty string passed
     if (numbers == '') {
@@ -15,39 +17,23 @@ class StringCalculator {
 
     if (numbers > 1000) {
       numbers = 0;
-    }
-
-  else {
+    } else {
 
       //throws error for negative numbers
+
       for(let i = 0; i < numbers.length; i++) {
         if(numbers[i] == '-') {
-          try {
-            throw 'negative numbers not allowed';
-          } catch (error) {
-            return error + numbers[i];
-          }
+          throw new Error('negatives not allowed');
         }
       }
 
       for(i = 0; i < splits.length; i++) {
-        add += parseInt(splits[i]); //parseInt helps convert our string to numbers
+        //parseInt helps convert our string to numbers
+        add += parseInt(splits[i]);
       }
     return add;
     }
   }
 }
 
-const calculator = new StringCalculator();
-console.log(calculator.add(''));
-console.log(calculator.add('1'));
-console.log(calculator.add('1,2'));
-console.log(calculator.add('9,70,34,15'));
-console.log(calculator.add('5\n10,3'));
-console.log(calculator.add('5\n10,3;6|1'));
-console.log(calculator.add('-5,10'));
-console.log(calculator.add('2+1001'));
-
-module.exports = {
-  StringCalculator
-}
+module.exports = { StringCalculator }
